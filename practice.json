@@ -1,0 +1,11 @@
+{
+  "d": {
+    "Id": "practice",
+    "Name": "practice",
+    "Description": "\u003cp\u003e\u003c/p\u003e",
+    "ShortText": "practice",
+    "Version": "1.0",
+    "Vendor": "SAP",
+    "Mode": "EDIT_ALLOWED"
+  }
+}
