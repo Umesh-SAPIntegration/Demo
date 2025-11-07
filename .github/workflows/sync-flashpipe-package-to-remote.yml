@@ -30,3 +30,4 @@ jobs:
           package-id: practice
           target: tenant
           dir-artifacts-relative: IF_practice_Postman_to_CPI
+          debug: true
