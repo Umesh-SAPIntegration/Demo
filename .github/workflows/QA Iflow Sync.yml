@@ -27,4 +27,4 @@ jobs:
           artifact-name: IF_practice_Postman_to_CPI_QA
           package-id: practice
           package-name: practice
-          dir-artifact-relative: CICD/IF_practice_Postman_to_CPI
+          dir-artifact-relative: CICD/IF_practice_Postman_to_CPI_QA
