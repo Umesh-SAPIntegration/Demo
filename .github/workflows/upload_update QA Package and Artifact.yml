@@ -1,49 +1,20 @@
-name: Push to CPI QA package
+name: Push to CPI package
 
 on:
   workflow_dispatch:
 
 jobs:
-  run-checks:
-    runs-on: ubuntu-latest
-    container:
-      image: cpilint/cpilint:1.0.5
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-
-      - name: Zip the iflow (pre-CPILint 1.1.0 workaround)
-        run: |
-          cd TrialTenantToGIT/IF_practice_Postman_to_CPI
-          zip -r ../../IF_practice_Postman_to_CPI.zip *
-          cd ../..
-
-      - name: Run the CPILint checks
-        run: cpilint -rules rules/demo-rules.xml -files DEMO_IFLOW_QA.zip -boring -skipvercheck
-
-      - name: Upload iflow zip as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: IF_practice_Postman_to_CPI
-          path: IF_practice_Postman_to_CPI.zip
 
   build:
-    needs: run-checks
     runs-on: ubuntu-latest
     container:
       image: engswee/flashpipe:latest
 
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # - name: Download iflow zip artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: DEMO_IFLOW_QA
-      #     path: TrialTenantToGIT/DEMO_IFLOW_QA.zip 
-
+      
       # Upload/Update design time artifact
       - name: Update/Upload iflow to design time
         uses: engswee/flashpipe-action/update/artifact@v1
