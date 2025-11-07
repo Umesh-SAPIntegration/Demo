@@ -1,0 +1,30 @@
+name: Push to CPI package
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: engswee/flashpipe:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      
+      # Upload/Update design time artifact
+      - name: Update/Upload iflow to design time
+        uses: engswee/flashpipe-action/update/artifact@v1
+        with:
+          tmn-host: ${{ vars.API_ENDPOINT_TMN_HOST }}
+          oauth-host: ${{ vars.OAUTH_HOST }}
+          oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
+          oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
+          artifact-id: IF_practice_Postman_to_CPI_QA
+          artifact-name: IF_practice_Postman_to_CPI_QA
+          package-id: practice
+          package-name: practice
+          dir-artifact-relative: CICD/IF_practice_Postman_to_CPI
