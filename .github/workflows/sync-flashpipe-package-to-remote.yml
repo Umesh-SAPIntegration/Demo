@@ -21,12 +21,13 @@ jobs:
           package-file-relative: CICD/practice.json
 
       - name: 'Sync FlashPipeDemo artifacts'
-        uses: engswee/flashpipe-action/update/artifact@v1
+        uses: engswee/flashpipe-action/sync@v1
         with:
           tmn-host: aaaa5853trial.it-cpitrial06.cfapps.us10-001.hana.ondemand.com
           oauth-host: aaaa5853trial.authentication.us10.hana.ondemand.com
           oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
           oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
+          artifact-id: IF_practice_Postman_to_CPI
           package-id: practice
           target: tenant
           dir-artifacts-relative: CICD/IF_practice_Postman_to_CPI
