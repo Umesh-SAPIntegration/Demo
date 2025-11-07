@@ -18,7 +18,7 @@ jobs:
           oauth-host: aaaa5853trial.authentication.us10.hana.ondemand.com
           oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
           oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
-          package-file-relative: practice.json
+          package-file-relative: CICD/practice.json
 
       - name: 'Sync FlashPipeDemo artifacts'
         uses: engswee/flashpipe-action/sync@v1
@@ -29,5 +29,5 @@ jobs:
           oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
           package-id: practice
           target: tenant
-          dir-artifacts-relative: IF_practice_Postman_to_CPI
+          dir-artifacts-relative: CICD/IF_practice_Postman_to_CPI
           debug: true
