@@ -1,4 +1,4 @@
-name: Push to CPI package
+name: Push to CPI package and Iflow
 
 on:
   workflow_dispatch:
