@@ -17,7 +17,7 @@ jobs:
       
       # Upload/Update design time artifact
       - name: Update/Upload iflow to design time
-        uses: engswee/flashpipe-action/create/artifact@v1
+        uses: engswee/flashpipe-action/update/artifact@v1
         with:
           tmn-host: ${{ vars.API_ENDPOINT_TMN_HOST }}
           oauth-host: ${{ vars.OAUTH_HOST }}
